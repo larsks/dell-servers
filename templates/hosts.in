@@ -6,3 +6,4 @@
 [idrac:vars]
 ansible_user={{ idrac_user }}
 ansible_ssh_pass={{ idrac_pass }}
+ansible_ssh_common_args=-F ssh_config

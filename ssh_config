@@ -1,0 +1,2 @@
+Host 10.0.*
+    ProxyCommand ssh kzn-h.infra.massopen.cloud -W %h:%p
