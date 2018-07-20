@@ -1,0 +1,53 @@
+- hosts: idrac
+  tasks:
+    - raw: racadm get idrac.info.version
+      register: idracversion_out
+      failed_when: >
+        'ERROR' in idracversion_out.stdout
+      ignore_errors: true
+
+    - set_fact:
+        idracversion_out:
+          stdout_lines:
+            - "Version=unknown"
+      when: idracversion_out is failed
+
+    - raw: racadm get bios.sysinformation.systembiosversion
+      register: biosversion_out
+      failed_when: >
+        'ERROR' in biosversion_out.stdout
+
+    - set_fact:
+        biosversion_out:
+          stdout_lines:
+            - "systembiosversion=unknown"
+      when: biosversion_out is failed
+
+    - set_fact:
+        biosversion: >-
+          {{ (biosversion_out.stdout_lines|
+          select('match', '^systembiosversion')|
+          first).split('=')[1] }}
+        idracversion: >-
+          {{ (idracversion_out.stdout_lines|
+          select('match', '^Version')|
+          first).split('=')[1] }}
+
+- hosts: localhost
+  vars:
+    firmware_versions: {}
+  tasks:
+    - set_fact:
+        firmware_versions: >-
+          {{ firmware_versions | combine({
+          item: {
+          'idrac': hostvars[item].idracversion,
+          'bios': hostvars[item].biosversion,
+          }}) }}
+      when: >
+        'idracversion' in hostvars[item]
+      with_items: "{{ groups.idrac }}"
+
+    - template:
+        src: ./templates/firmware_versions.txt.in
+        dest: ./data/firmware_versions.txt

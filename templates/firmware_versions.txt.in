@@ -1,0 +1,5 @@
+{{ '%-15s' % 'Host' }} {{ '%-10s' % 'BIOS' }} {{ '%-10s' % 'iDRAC' }}
+
+{% for host, firmware in firmware_versions|ipsort %}
+{{ '%-15s' % host }} {{ '%-10s' % firmware.bios }} {{ '%-10s' % firmware.idrac }}
+{% endfor %}
