@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    # These are the Dell default values. Put your local credentials
+    # in `group_vars/all.yml`.
+    idrac_user: root
+    idrac_pass: calvin
+  vars_files:
+    - idrac.json
+  tasks:
+    - name: ensure that credentials are available
+      fail:
+        msg: "You must set idrac_user and idrac_pass"
+      when: >-
+        idrac_user is not defined or idrac_pass is not defined
+
+    - name: generate idrac inventory
+      template:
+        src: templates/hosts.in
+        dest: ./hosts

@@ -1,0 +1,8 @@
+[idrac]
+{% for host in nmaprun.host %}
+{{ host.address["@addr"] }}
+{% endfor %}
+
+[idrac:vars]
+ansible_user={{ idrac_user }}
+ansible_ssh_pass={{ idrac_pass }}
