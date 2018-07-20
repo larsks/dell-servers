@@ -6,7 +6,7 @@
     idrac_user: root
     idrac_pass: calvin
   vars_files:
-    - idrac.json
+    - data/idrac.json
   tasks:
     - name: ensure that credentials are available
       fail:
