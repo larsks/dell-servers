@@ -1,0 +1,395 @@
+{
+  "nmaprun": {
+    "@scanner": "nmap",
+    "@args": "nmap -sL -n -oX - -iL idrac.ranges",
+    "@start": "1532100481",
+    "@startstr": "Fri Jul 20 11:28:01 2018",
+    "@version": "7.60",
+    "@xmloutputversion": "1.04",
+    "verbose": {
+      "@level": "0"
+    },
+    "debugging": {
+      "@level": "0"
+    },
+    "host": [
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.1",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.2",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.3",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.4",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.5",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.6",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.7",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.8",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.9",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.10",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.11",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.12",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.13",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.14",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.15",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.16",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.17",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.18",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.19",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.20",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.21",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.22",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.23",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.24",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.3.25",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.5.36",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.5.37",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.5.38",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.19.35",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.19.36",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.19.37",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.19.38",
+          "@addrtype": "ipv4"
+        }
+      },
+      {
+        "status": {
+          "@state": "unknown",
+          "@reason": "user-set",
+          "@reason_ttl": "0"
+        },
+        "address": {
+          "@addr": "10.0.19.39",
+          "@addrtype": "ipv4"
+        }
+      }
+    ],
+    "runstats": {
+      "finished": {
+        "@time": "1532100481",
+        "@timestr": "Fri Jul 20 11:28:01 2018",
+        "@elapsed": "0.00",
+        "@summary": "Nmap done at Fri Jul 20 11:28:01 2018; 33 IP addresses (0 hosts up) scanned in 0.00 seconds",
+        "@exit": "success"
+      },
+      "hosts": {
+        "@up": "0",
+        "@down": "33",
+        "@total": "33"
+      }
+    }
+  }
+}
