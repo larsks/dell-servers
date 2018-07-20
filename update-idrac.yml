@@ -1,0 +1,38 @@
+---
+- hosts: idrac
+  vars:
+    target_idrac_version: 2.60.60.60
+    ftp_server: 10.0.0.1
+    ftp_user: anonymous
+    ftp_pass: anon@
+    firmware_path: firmware/firmimg.d7
+  tasks:
+    - name: get current idrac version
+      raw: racadm get idrac.info.version
+      register: idracversion_out
+      failed_when: >
+        'ERROR' in idracversion_out.stdout
+      ignore_errors: true
+
+    - set_fact:
+        idracversion: >-
+          {{ (idracversion_out.stdout_lines|
+          select('match', '^Version')|
+          first).split('=')[1] }}
+
+    - name: update firmware
+      raw: >-
+        racadm fwupdate
+        -f {{ ftp_server }} {{ ftp_user }} {{ ftp_pass }}
+        -d {{ firmware_path }}
+      register: result
+      failed_when: >-
+        'ERROR' in result.stdout
+      when: >-
+        idracversion is version(target_idrac_version, '<') or
+        force_update|default(false)|bool
+
+    - name: show output of update task
+      debug:
+        var: result.stdout_lines
+      when: result is changed
