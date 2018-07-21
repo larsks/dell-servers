@@ -1,0 +1,58 @@
+- hosts: idrac
+  vars:
+    bios_update_file: BIOS_NGYCX_WN64_2.7.0.EXE
+    cifs_path: //10.0.0.1/firmware
+    cifs_user: guest
+    cifs_pass: guest
+    target_bios_version: 2.7.0
+  tasks:
+    - name: get bios version
+      raw: racadm get bios.sysinformation.systembiosversion
+      register: biosversion_out
+      failed_when: >
+        'ERROR' in biosversion_out.stdout
+
+    # The previous command produces output along the lines of:
+    #
+    #   [Key=BIOS.Setup.1-1#sysinformation]
+    #   systembiosversion=2.7.0
+    #
+    # This tasks extract the bios version into a new variable.
+    - set_fact:
+        biosversion: >-
+          {{ (biosversion_out.stdout_lines|
+          select('match', '^systembiosversion')|
+          first).split('=')[1] }}
+
+    - name: check if host requires a bios update
+      when: biosversion is version(target_bios_version, '<')
+      block:
+        - debug:
+            msg: "{{ inventory_hostname }} requires an update"
+
+        - name: clear job queue
+          raw: >-
+            racadm jobqueue delete --all
+
+        - name: schedule bios update
+          raw: >-
+            racadm update
+            -f {{ bios_update_file }}
+            -l {{ cifs_path }}
+            -u {{ cifs_user }} -p {{ cifs_pass }}
+          register: result
+          failed_when: >
+            'ERROR' in result.stdout
+
+        - raw: >-
+            racadm jobqueue view
+          register: jobqueue
+
+        - debug:
+            var: jobqueue.stdout_lines
+
+        - name: power cycle server
+          raw: >-
+            racadm serveraction powercycle
+          failed_when: >
+            'ERROR' in result.stdout
