@@ -10,6 +10,11 @@ hosts: data/idrac.json templates/hosts.in
 	ansible-playbook generate-idrac-inventory.yml
 	touch $@
 
+# This translates the nmap output into a simple text file.
+hosts.txt: data/idrac.json templates/hosts.txt.in
+	ansible-playbook generate-idrac-inventory.yml
+	touch $@
+
 # Remove generated files.
 clean:
 	rm -f hosts data/idrac.json

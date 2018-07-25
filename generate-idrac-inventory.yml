@@ -18,3 +18,8 @@
       template:
         src: templates/hosts.in
         dest: ./hosts
+
+    - name: generate idrac address list
+      template:
+        src: templates/hosts.txt.in
+        dest: ./hosts.txt

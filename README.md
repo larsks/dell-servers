@@ -11,6 +11,13 @@ To generate the 'hosts' file:
 
 [xq]: https://github.com/kislyuk/yq
 
+## Getting started
+
+Run `make` to generate the Ansible inventory. This reads the address
+ranges defined in the [idrac.ranges](idrac.ranges) file and generates
+an inventory containing the resulting list of addresses in the `idrac`
+host group.
+
 ## Cookbook
 
 ### Get system information for all systems
