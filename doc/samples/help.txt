@@ -1,0 +1,91 @@
+ 
+ help                 -- Display list of RACADM sub commands with help string
+ help [subcommand]    -- display usage summary for a subcommand
+ arp                  -- display the networking ARP table
+ autoupdatescheduler  -- Automatic Platform Update of the devices on the server.
+ clearasrscreen       -- clear the last ASR (crash) screen
+ clearpending         -- clear pending attribute(s) value of a Device Class
+ closessn             -- close a session
+ clrsel               -- clear the System Event Log (SEL)
+ config               -- Deprecated: modify RAC configuration properties
+ coredump             -- display the last RAC coredump
+ coredumpdelete       -- delete the last RAC coredump
+ debug                -- Field Service Debug Authorization facility commands
+ eventfilters         -- Alerts configuration commands
+ fwupdate             -- update the RAC firmware
+ get                  -- display RAC configuration properties
+ getconfig            -- Deprecated: display RAC configuration properties
+ gethostnetworkinterfaces -- Display host network interface details
+ getled               -- Get the state of the LED on a module.
+ getniccfg            -- display current network settings
+ getraclog            -- display the RAC log
+ getractime           -- display the current RAC time
+ getsel               -- display records from the System Event Log (SEL)
+ getsensorinfo        -- display system sensors
+ getssninfo           -- display session information
+ getsvctag            -- display service tag information
+ getsysinfo           -- display general RAC and system information
+ gettracelog          -- display the RAC diagnostic trace log
+ getuscversion        -- Deprecated: display the current USC version details
+ getversion           -- display the current version details
+ ifconfig             -- display network interface information
+ inlettemphistory     -- inlet temperature history operations
+ license              -- License Manager commands
+ lclog                -- LCLog operations
+ frontpanelerror      -- hide LCD errors - color amber to blue
+ netstat              -- display routing table and network statistics
+ ping                 -- send ICMP echo packets on the network
+ ping6                -- send ICMP echo packets on the network
+ racdump              -- display RAC diagnostic information
+ racreset             -- perform a RAC reset operation
+ racresetcfg          -- restore the RAC configuration to factory defaults
+ remoteimage          -- make a remote ISO image available to the server
+ rollback             -- Rollback firmware to its previous version.
+ serveraction         -- perform system power management operations
+ set                  -- modify RAC configuration properties
+ setled               -- Set the state of the LED on a module.
+ setniccfg            -- modify network configuration properties
+ sshpkauth            -- manage SSH PK authentication keys on the RAC
+ sslcertdelete        -- delete an SSL certificate on the iDRAC
+ sslcertview          -- view SSL certificate information
+ sslcsrgen            -- generate a certificate CSR from the RAC
+ sslencryptionstrength -- Deprecated: Display or modify the SSL Encryption strength.
+ sslresetcfg          -- Reset iDRAC to apply new certificate. Until iDRAC is reset old certificate will be active.
+ swinventory          -- Display the list of S/W Installed on the server.
+ systemconfig         -- Backup &/or Restore of iDRAC Config and Firmware
+ systemerase          -- Performs system erase on a selected component.
+ testemail            -- test RAC e-mail notifications
+ testtrap             -- test RAC SNMP trap notifications
+ testalert            -- test RAC SNMP - FQDN trap notifications
+ traceroute           -- print the route packets trace to network host
+ traceroute6          -- print the route packets trace to network host
+ techsupreport        -- Tech Support Report operations.
+ usercertview         -- view user certificate information
+ vflashpartition      -- manage partitions on the vFlash SD card
+ vflashsd             -- perform vFlash SD Card initialization
+ vmdisconnect         -- disconnect Virtual Media connections
+ raid                 -- Monitoring and Inventory of H/W RAID connected to the server.
+ storage              -- Monitoring and Inventory of H/W RAID connected to the server.
+ hwinventory          -- Monitoring and Inventory of H/W NICs connected to the server.
+ nicstatistics        -- Statistics for NICs connected to the server.
+ fcstatistics         -- Statistics for FCs connected to the server.
+ update               -- Platform Update of the devices on the server
+ jobqueue             -- Jobqueue of of the jobs currently scheduled
+ sensorsettings       -- Set the sensor threshold levels.
+ diagnostics          -- Remote Diagnostic commands
+ systemperfstatistics -- Display or Modify System Performance Statistics
+ 
+ Groups
+ 
+ BIOS                -- Configuration of BIOS attributes
+ iDRAC               -- Configuration of iDRAC attributes
+ LifecycleController -- Configuration of LifecycleController attributes
+ Nic                 -- Configuration of NIC attributes
+ Storage             -- Configuration of Storage attributes
+ System              -- Configuration of System attributes
+ FC                  -- Configuration of Fiber Channel attributes
+
+For Help on configuring the properties of a group - racadm help set
+ 
+-----------------------------------------------------------------------
+ 

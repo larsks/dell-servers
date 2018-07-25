@@ -1,0 +1,75 @@
+RAC Information:
+RAC Date/Time           = Wed Jul 25 00:16:35 2018
+
+Firmware Version        = 2.60.60.60
+Firmware Build          = 52
+Last Firmware Update    = 07/20/2018 16:50:54
+Hardware Version        = 0.01
+MAC Address             = C0:FF:EE:DF:64:D0
+
+Common settings:
+Register DNS RAC Name   = 1
+DNS RAC Name            = idrac-ABCX8Z1
+Current DNS Domain      = 
+Domain Name from DHCP   = Enabled
+
+IPv4 settings:
+Enabled                 = 1
+Current IP Address      = 10.0.3.1
+Current IP Gateway      = 10.0.0.1
+Current IP Netmask      = 255.255.224.0
+DHCP Enabled            = 0
+Current DNS Server 1    = 172.19.63.1
+Current DNS Server 2    = 172.20.63.1
+DNS Servers from DHCP   = Disabled
+
+IPv6 settings:
+Enabled                 = 0
+Current IP Address 1    = ::
+Current IP Gateway      = ::
+Autoconfig              = 1
+Link Local IP Address   = ::
+Current IP Address 2    = ::
+Current IP Address 3    = ::
+Current IP Address 4    = ::
+Current IP Address 5    = ::
+Current IP Address 6    = ::
+Current IP Address 7    = ::
+Current IP Address 8    = ::
+Current IP Address 9    = ::
+Current IP Address 10   = ::
+Current IP Address 11   = ::
+Current IP Address 12   = ::
+Current IP Address 13   = ::
+Current IP Address 14   = ::
+Current IP Address 15   = ::
+DNS Servers from DHCPv6 = Disabled
+Current DNS Server 1    = ::
+Current DNS Server 2    = ::
+
+System Information:
+System Model            = PowerEdge R620
+System Revision         = I
+System BIOS Version     = 2.7.0
+Service Tag             = ABCX8Z1
+Express Svc Code        = 12345678165
+Host Name               = 
+OS Name                 = 
+OS Version              = 
+Power Status            = ON
+Fresh Air Capable       = Yes
+
+Watchdog Information:
+Recovery Action         = None
+Present countdown value = 15 seconds
+Initial countdown value = 15 seconds
+
+System Thermal Information:
+EstimatedSystemAirflow  =  NA 
+EstimatedExhaustTemperature =  38 Degrees Centigrade
+
+Embedded NIC MAC Addresses:
+NIC.Integrated.1-1-1    Ethernet                = C0:FF:EE:67:0F:74
+NIC.Integrated.1-2-1    Ethernet                = C0:FF:EE:67:0F:75
+NIC.Integrated.1-3-1    Ethernet                = C0:FF:EE:67:0F:76
+NIC.Integrated.1-4-1    Ethernet                = C0:FF:EE:67:0F:77

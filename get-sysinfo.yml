@@ -1,0 +1,18 @@
+---
+- hosts: idrac
+  tasks:
+    - name: get system info
+      raw: racadm getsysinfo
+      register: sysinfo
+
+    - name: ensure output directory exists
+      delegate_to: localhost
+      file:
+        path: ./sysinfo
+        state: directory
+
+    - name: write system info to a file
+      delegate_to: localhost
+      copy:
+        content: "{{ sysinfo.stdout }}"
+        dest: "./sysinfo/{{ inventory_hostname }}.txt"

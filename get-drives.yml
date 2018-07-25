@@ -1,0 +1,38 @@
+---
+- hosts: idrac
+  vars:
+    idrac_user: root
+    idrac_pass: calvin
+  tasks:
+    - name: get system info
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}/redfish/v1/Systems/System.Embedded.1"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      register: sysinfo
+
+    - name: get list of storage controllers
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}{{ sysinfo.json.Storage['@odata.id'] }}"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      register: storage
+
+    - name: get information about first storage controller
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}{{ storage.json.Members.0['@odata.id'] }}"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      register: storage0
+
+    - debug:
+        msg: "number of drives: {{ storage0.json.Drives|length }}"

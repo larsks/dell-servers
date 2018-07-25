@@ -1,0 +1,11 @@
+---
+- hosts: idrac
+  vars:
+    idrac_pass: calvin
+
+  tasks:
+    - name: enable vnc server
+      raw: racadm set idrac.vncserver.enable Enabled
+
+    - name: set vnc password
+      raw: racadm set idrac.vncserver.Password {{ idrac_pass }}
