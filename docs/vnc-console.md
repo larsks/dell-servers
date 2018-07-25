@@ -36,17 +36,22 @@ You can take advantage of Ansible to automate this process on multiple
 iDRACs.  The following playbook would enable VNC console access on all
 servers in the `idrac` host group:
 
-    ---
-    - hosts: idrac
-      vars:
-        idrac_pass: calvin
+```yaml
+---
+# This playbook uses the racadm command to enable native VNC console
+# support on all systems in the idrac host group.
+- hosts: idrac
+  vars:
+    # You can override this default by putting your own values in
+    # group_vars/all.yml (or group_vars/idrac.yml).
+    idrac_vnc_pass: calvin
+  tasks:
+    - name: enable vnc server
+      raw: racadm set idrac.vncserver.enable Enabled
 
-      tasks:
-        - name: enable vnc server
-          raw: racadm set idrac.vncserver.enable Enabled
-
-        - name: set vnc password
-          raw: racadm set idrac.vncserver.Password {{ idrac_pass }}
+    - name: set vnc password
+      raw: racadm set idrac.vncserver.Password {{ idrac_vnc_pass }}
+```
 
 Running the playbook like this would execute it against all known
 iDRACs:

@@ -24,7 +24,7 @@ the following to your `~/.ssh/config` file:
       ProxyCommand ssh kzn-h.infra.massopen.cloud -W %h:%p
 
 This will allow you to ssh to the iDRACs as if you were directly on
-the iDRAC network.
+the iDRAC network. It will not permit you to access the web interface.
 
 ### Setting up an SSH SOCKS proxy
 
@@ -70,6 +70,8 @@ the following would collect the output of `racadm getsysinfo`:
 
 ```yaml
 ---
+# This playbook records the output of 'racadm getsysinfo' for each
+# system in the idrac host group into files in the sysinfo directory.
 - hosts: idrac
   tasks:
     - name: get system info
@@ -100,6 +102,23 @@ Or against specific iDRACs like this:
 Running this playbook would produce a collection of files in
 `./sysinfo` containing the output of `racadm getsysinfo` on each
 iDRAC.
+
+## Dell proprietary console access
+
+Dell provides their own console access tool that requires `javaws` to
+run.  The `javaws` binary is part of a standard Java JRE install, or
+you can also obtain it as part of the `icedtea` package. On Fedora and
+CentOS you can run:
+
+    yum install javaws
+
+Or on Ubuntu:
+
+    apt-get install icedtea-netx
+
+When you click on the "Launch" link in the iDRAC web interface, this
+will download a `viewer.jnlp` file that can be opened with `javaws`
+in order to start the console interface.
 
 ## VNC console access
 
