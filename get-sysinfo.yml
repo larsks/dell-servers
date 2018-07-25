@@ -1,4 +1,6 @@
 ---
+# This playbook records the output of 'racadm getsysinfo' for each
+# system in the idrac host group into files in the sysinfo directory.
 - hosts: idrac
   tasks:
     - name: get system info

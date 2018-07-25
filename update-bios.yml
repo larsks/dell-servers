@@ -1,3 +1,4 @@
+---
 - hosts: idrac
   vars:
     bios_update_file: BIOS_NGYCX_WN64_2.7.0.EXE

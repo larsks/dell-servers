@@ -1,3 +1,7 @@
+---
+# This playbooik fetches the bios and idrac firmware version from all
+# systems in the idrac host group, and then generates a report in
+# data/firmware_versions.txt.
 - hosts: idrac
   tasks:
     - raw: racadm get idrac.info.version

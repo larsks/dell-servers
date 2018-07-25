@@ -1,11 +1,17 @@
 ---
+# Initiate an idrac firmware update if the idrac has an outdated
+# version of the firmware.
 - hosts: idrac
+  
+  # You can override these defaults by placing your own values in
+  # group_vars/all.yml (or group_vars/idrac.yml).
   vars:
     target_idrac_version: 2.60.60.60
     ftp_server: 10.0.0.1
     ftp_user: anonymous
     ftp_pass: anon@
     firmware_path: firmware/firmimg.d7
+
   tasks:
     - name: get current idrac version
       raw: racadm get idrac.info.version
