@@ -96,6 +96,8 @@ number of drives attached to a host:
 
 ```yaml
 ---
+# This playbook uses the Redfish API to retrieve the count of drives
+# attached to the first RAID controller.
 - hosts: idrac
   vars:
     idrac_user: root
@@ -111,6 +113,9 @@ number of drives attached to a host:
         validate_certs: false
       register: sysinfo
 
+    # The document retrieved in the previous task includes a "Storage"
+    # key that provides a reference to another document that has a
+    # list of RAID controllers.
     - name: get list of storage controllers
       delegate_to: localhost
       uri:
@@ -121,6 +126,12 @@ number of drives attached to a host:
         validate_certs: false
       register: storage
 
+    # Information about a RAID controller includes a list of
+    # references to information about its attached drives. We don't
+    # need to dereference those values in this task because we're only
+    # interested in the count of drives, but we would need to
+    # dereference them if we were looking for things like drive
+    # capacity, manufacturer, or model.
     - name: get information about first storage controller
       delegate_to: localhost
       uri:
@@ -131,6 +142,8 @@ number of drives attached to a host:
         validate_certs: false
       register: storage0
 
+    # In a more realistic scenario you might write this to a file or
+    # use it to generate a report from a template.
     - debug:
         msg: "number of drives: {{ storage0.json.Drives|length }}"
 ```

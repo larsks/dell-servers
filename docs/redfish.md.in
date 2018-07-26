@@ -82,7 +82,7 @@ find the information you want.  The following playbook will report the
 number of drives attached to a host:
 
 ```yaml
-#include ../get-drives.yml
+#include ../redfish-get-drives.yml
 ```
 
 This makes a request against the `/Systems/System.Embedded.1`
