@@ -1,0 +1,65 @@
+---
+# This playbook uses the Redfish API to retrieve the host MAC
+# addresses.
+- hosts: idrac
+  vars:
+    idrac_user: root
+    idrac_pass: calvin
+  tasks:
+    - name: get system info
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}/redfish/v1/Systems/System.Embedded.1"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      register: sysinfo
+
+    # The document retrieved in the previous task includes an
+    # "EthernetInterfaces" key that provides a reference to another
+    # document that has a list of Ethernet interfaces.
+    - name: get list of ethernet interfaces
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}{{ sysinfo.json.EthernetInterfaces['@odata.id'] }}"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      register: niclist
+
+    # This looks up the information for each interface in the
+    # "Members" key in the data returned by the previous task. We use
+    # Ansible's async feature to launch all the tasks in parallel,
+    # rather than waiting for each uri task to complete before
+    # starting the next one.
+    - name: get information on each ethernet interface
+      delegate_to: localhost
+      uri:
+        url: "https://{{ inventory_hostname }}{{ item['@odata.id'] }}"
+        user: "{{ idrac_user }}"
+        password: "{{ idrac_pass }}"
+        return_content: true
+        validate_certs: false
+      with_items: "{{ niclist.json.Members }}"
+      register: nics_job
+      async: 600
+      poll: 0
+
+    # This tasks waits for the async jobs to complete.
+    - name: wait for uri tasks to complete
+      delegate_to: localhost
+      async_status:
+        jid: "{{ item.ansible_job_id }}"
+      with_items: "{{ nics_job.results }}"
+      register: nics
+      until: nics.finished
+      retries: 120
+      delay: 5
+
+    - debug:
+        msg: "{{ item.Id }} {{ item.MACAddress }} {{ item.Status.State }}"
+      with_items: "{{ nics.results|map(attribute='json')|list }}"
+      loop_control:
+        label: "{{ item.Id }}"
